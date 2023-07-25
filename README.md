@@ -1,5 +1,6 @@
-# Read Adviser Bot
+# Тестовый бот
 
-**Read Adviser Bot** - is a bot for Telegram that can save links sent by users and can send you random from them.
+За основу взят бот, который сохраняет отправленные ссылки и может отправить клиенту рандомную ссылку.
 
-It can be useful for people who often save many links, but always forget about them.
+Запуск:\
+`./bot_india -tg-token '<telegram_bot_token>' 2>log_file_path/log_file_name.log`

@@ -12,7 +12,7 @@ type Config struct {
 
 func MustLoad() Config {
 	tgBotTokenToken := flag.String(
-		"tg-bot-token",
+		"tg-token",
 		"",
 		"token for access to telegram bot",
 	)
