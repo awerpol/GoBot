@@ -2,13 +2,14 @@ package main
 
 import (
 	"log"
-	"time"
+	// "time"
 
-	tgClient "read-adviser-bot/clients/telegram"
-	"read-adviser-bot/config"
-	"read-adviser-bot/consumer/event-consumer"
-	"read-adviser-bot/events/telegram"
-	"read-adviser-bot/storage/mongo"
+	tgClient "bot_india/clients/telegram"
+	"bot_india/config"
+	"bot_india/consumer/event-consumer"
+	"bot_india/events/telegram"
+	"bot_india/storage/files"
+	// "bot_india/storage/mongo"
 )
 
 const (
@@ -19,9 +20,9 @@ const (
 
 func main() {
 	cfg := config.MustLoad()
-	//storage := files.New(storagePath)
 
-	storage := mongo.New(cfg.MongoConnectionString, 10*time.Second)
+	storage := files.New(storagePath)
+	// storage := mongo.New(cfg.MongoConnectionString, 10*time.Second)
 
 	eventsProcessor := telegram.New(
 		tgClient.New(tgBotHost, cfg.TgBotToken),

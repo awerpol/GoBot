@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"io"
 
-	"read-adviser-bot/lib/e"
+	"bot_india/lib/e"
 )
 
 type Storage interface {
@@ -19,6 +19,7 @@ type Storage interface {
 
 var ErrNoSavedPages = errors.New("no saved pages")
 
+// не то, что нужно в этом проекте
 type Page struct {
 	URL      string
 	UserName string

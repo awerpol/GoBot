@@ -9,7 +9,7 @@ import (
 	"path"
 	"strconv"
 
-	"read-adviser-bot/lib/e"
+	"bot_india/lib/e"
 )
 
 type Client struct {

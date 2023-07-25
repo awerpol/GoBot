@@ -7,12 +7,12 @@ import (
 	"net/url"
 	"strings"
 
-	"read-adviser-bot/lib/e"
-	"read-adviser-bot/storage"
+	"bot_india/lib/e"
+	"bot_india/storage"
 )
 
 const (
-	RndCmd   = "/rnd"
+	RndCmd   = "/rnd" // какие команды нужны? Все кнопки сюды?
 	HelpCmd  = "/help"
 	StartCmd = "/start"
 )
@@ -80,7 +80,7 @@ func (p *Processor) sendRandom(ctx context.Context, chatID int, username string)
 		return err
 	}
 
-	return p.storage.Remove(ctx, page)
+	return p.storage.Remove(ctx, page) // сделать отдельной командой
 }
 
 func (p *Processor) sendHelp(ctx context.Context, chatID int) error {
@@ -92,9 +92,10 @@ func (p *Processor) sendHello(ctx context.Context, chatID int) error {
 }
 
 func isAddCmd(text string) bool {
-	return isURL(text)
+	return isURL(text) // нам надо? Вроде не
 }
 
+// не наш кейс
 func isURL(text string) bool {
 	u, err := url.Parse(text)
 

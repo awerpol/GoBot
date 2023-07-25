@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"read-adviser-bot/events"
+	"bot_india/events"
 )
 
 type Consumer struct {

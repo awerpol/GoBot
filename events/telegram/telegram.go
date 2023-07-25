@@ -4,10 +4,10 @@ import (
 	"context"
 	"errors"
 
-	"read-adviser-bot/clients/telegram"
-	"read-adviser-bot/events"
-	"read-adviser-bot/lib/e"
-	"read-adviser-bot/storage"
+	"bot_india/clients/telegram"
+	"bot_india/events"
+	"bot_india/lib/e"
+	"bot_india/storage"
 )
 
 type Processor struct {

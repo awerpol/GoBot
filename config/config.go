@@ -17,23 +17,24 @@ func MustLoad() Config {
 		"token for access to telegram bot",
 	)
 
-	mongoConnectionString := flag.String(
-		"mongo-connection-string",
-		"",
-		"connection string for MongoDB",
-	)
+	// mongoConnectionString := flag.String(
+	// 	"mongo-connection-string",
+	// 	"",
+	// 	"connection string for MongoDB",
+	// )
 
 	flag.Parse()
 
 	if *tgBotTokenToken == "" {
 		log.Fatal("token is not specified")
 	}
-	if *mongoConnectionString == "" {
-		log.Fatal("mongo connection string is not specified")
-	}
+	// if *mongoConnectionString == "" {
+	// 	log.Fatal("mongo connection string is not specified")
+	// }
 
 	return Config{
 		TgBotToken:            *tgBotTokenToken,
-		MongoConnectionString: *mongoConnectionString,
+		MongoConnectionString: "",
+		// MongoConnectionString: *mongoConnectionString,
 	}
 }

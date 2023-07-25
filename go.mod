@@ -1,4 +1,4 @@
-module read-adviser-bot
+module bot_india
 
 go 1.17
 
