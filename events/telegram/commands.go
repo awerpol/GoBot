@@ -15,6 +15,7 @@ const (
 	RndCmd   = "/rnd" // какие команды нужны? Все кнопки сюды?
 	HelpCmd  = "/help"
 	StartCmd = "/start"
+	Picture  = "/photo" // ! ========================================================
 )
 
 func (p *Processor) doCmd(ctx context.Context, text string, chatID int, username string) error {
@@ -33,6 +34,8 @@ func (p *Processor) doCmd(ctx context.Context, text string, chatID int, username
 		return p.sendHelp(ctx, chatID)
 	case StartCmd:
 		return p.sendHello(ctx, chatID)
+	case Picture:
+		return p.tg.SendPhoto(ctx, chatID, msgPicture1)
 	default:
 		return p.tg.SendMessage(ctx, chatID, msgUnknownCommand)
 	}

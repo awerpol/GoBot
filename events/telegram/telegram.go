@@ -3,6 +3,7 @@ package telegram
 import (
 	"context"
 	"errors"
+	"fmt"
 
 	"bot_india/clients/telegram"
 	"bot_india/events"
@@ -33,6 +34,7 @@ func New(client *telegram.Client, storage storage.Storage) *Processor {
 	}
 }
 
+// получение событий
 func (p *Processor) Fetch(ctx context.Context, limit int) ([]events.Event, error) {
 	updates, err := p.tg.Updates(ctx, p.offset, limit)
 	if err != nil {
@@ -54,6 +56,7 @@ func (p *Processor) Fetch(ctx context.Context, limit int) ([]events.Event, error
 	return res, nil
 }
 
+// обработка
 func (p *Processor) Process(ctx context.Context, event events.Event) error {
 	switch event.Type {
 	case events.Message:
@@ -63,6 +66,7 @@ func (p *Processor) Process(ctx context.Context, event events.Event) error {
 	}
 }
 
+// обработка сообщений
 func (p *Processor) processMessage(ctx context.Context, event events.Event) error {
 	meta, err := meta(event)
 	if err != nil {
@@ -92,6 +96,8 @@ func event(upd telegram.Update) events.Event {
 		Type: updType,
 		Text: fetchText(upd),
 	}
+
+	fmt.Printf("UpdType = %d", updType) // !-==========!-==========!-==========!-==========!-==========!-==========
 
 	if updType == events.Message {
 		res.Meta = Meta{

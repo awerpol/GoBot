@@ -10,3 +10,5 @@ const (
 	msgSaved          = "Saved! 👌"
 	msgAlreadyExists  = "You have already have this page in your list 🤗"
 )
+
+const msgPicture1 = "https://apod.nasa.gov/apod/image/2110/LucyLaunchB_Kraus_960.jpg"

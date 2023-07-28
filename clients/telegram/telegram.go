@@ -21,6 +21,8 @@ type Client struct {
 const (
 	getUpdatesMethod  = "getUpdates"
 	sendMessageMethod = "sendMessage"
+	sendPhotoMethod   = "sendPhoto"
+	setButtons        = "setChatMenuButton"
 )
 
 func New(host string, token string) *Client {
@@ -64,6 +66,20 @@ func (c *Client) SendMessage(ctx context.Context, chatID int, text string) error
 	_, err := c.doRequest(ctx, sendMessageMethod, q)
 	if err != nil {
 		return e.Wrap("can't send message", err)
+	}
+
+	return nil
+}
+
+// ! ====================================
+func (c *Client) SendPhoto(ctx context.Context, chatID int, picture string) error {
+	q := url.Values{}
+	q.Add("chat_id", strconv.Itoa(chatID))
+	q.Add("photo", picture)
+
+	_, err := c.doRequest(ctx, sendPhotoMethod, q)
+	if err != nil {
+		return e.Wrap("can't send photo", err)
 	}
 
 	return nil
